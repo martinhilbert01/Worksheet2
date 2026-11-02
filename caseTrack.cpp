@@ -87,6 +87,10 @@ void populate_vector(std::vector<unsigned int>& global_cases) {
 
   // YOUR CODE HERE
 
+  for (int i = 0; i < global_cases.size(); i++) {
+    global_cases[i] = unif_distrib(gen);
+  }
+
 }
 
 int main() {
@@ -95,13 +99,27 @@ int main() {
   // it with dummy data using populate_vector (task 2).
 
   /* YOUR CODE HERE */
+  std::vector<unsigned int> global_cases(195);
+  populate_vector(global_cases);
 
   // 3. Find out which country had the highest number of cases today
   // and print both the no. of cases and the name of the country
   // print today's case numbers.
 
   /* YOUR CODE HERE */
+  int highest_cases{};
+  int country{};
+  for (int i = 0; i < global_cases.size(); i++) {
+
+    if(global_cases[i] > highest_cases){
+      highest_cases = global_cases[i];
+      country = i;
+    }
+    std::cout << highest_cases << "\n";
+  }
+
+  std::cout << "In " << countries[country] << " there are " << global_cases[country] << " cases." << "\n";
 
   // 4. Uncomment the call to "write_to_csv" once you have a global_cases vector.
-  // write_to_csv( global_cases );
+  write_to_csv( global_cases );
 }
