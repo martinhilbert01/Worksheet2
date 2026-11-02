@@ -99,7 +99,7 @@ int main() {
   // it with dummy data using populate_vector (task 2).
 
   /* YOUR CODE HERE */
-  std::vector<unsigned int> global_cases(195);
+  std::vector<unsigned int> global_cases(195, 0);
   populate_vector(global_cases);
 
   // 3. Find out which country had the highest number of cases today
